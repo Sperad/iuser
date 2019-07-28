@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: iuser
+  profiles:
+    active: local
