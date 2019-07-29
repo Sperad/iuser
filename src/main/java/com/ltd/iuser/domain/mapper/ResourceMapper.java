@@ -1,9 +1,9 @@
 package com.ltd.iuser.domain.mapper;
 
-import com.itian.busker.authorization.admin.domain.dto.resource.ResourceAdd;
-import com.itian.busker.authorization.admin.domain.dto.resource.ResourceDTO;
-import com.itian.busker.authorization.admin.domain.vo.Resource.ResourceVO;
-import com.itian.busker.authorization.common.entity.Resource;
+import com.ltd.iuser.domain.dto.resource.ResourceAdd;
+import com.ltd.iuser.domain.dto.resource.ResourceDTO;
+import com.ltd.iuser.domain.vo.Resource.ResourceVO;
+import com.ltd.iuser.entity.Resource;
 import org.mapstruct.Mapper;
 import org.mapstruct.ReportingPolicy;
 

@@ -1,9 +1,9 @@
 package com.ltd.iuser.pojo.page;
 
-import com.itian.busker.common.Code;
-import com.itian.busker.common.pojo.BuskerException;
+import com.ltd.iuser.enums.Code;
+import com.ltd.iuser.pojo.BusinessException;
 import org.apache.commons.collections4.CollectionUtils;
-import org.hibernate.jpa.criteria.path.SingularAttributePath;
+import org.hibernate.query.criteria.internal.path.SingularAttributePath;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
@@ -51,34 +51,34 @@ public abstract class PageUtil {
 						multiPredicate.add(criteriaBuilder.equal(path, field.getValue()));
 						break;
 					case GL:
-						throw new BuskerException(Code.RULE_UNIMPLEMENTED, String.format("rule=%s", field.getRule()));
+						throw new BusinessException(Code.RULE_UNIMPLEMENTED, String.format("rule=%s", field.getRule()));
 //						break;
 					case GELE:
-						throw new BuskerException(Code.RULE_UNIMPLEMENTED, String.format("rule=%s", field.getRule()));
+						throw new BusinessException(Code.RULE_UNIMPLEMENTED, String.format("rule=%s", field.getRule()));
 //						break;
 					case GLE:
-						throw new BuskerException(Code.RULE_UNIMPLEMENTED, String.format("rule=%s", field.getRule()));
+						throw new BusinessException(Code.RULE_UNIMPLEMENTED, String.format("rule=%s", field.getRule()));
 //						break;
 					case GEL:
-						throw new BuskerException(Code.RULE_UNIMPLEMENTED, String.format("rule=%s", field.getRule()));
+						throw new BusinessException(Code.RULE_UNIMPLEMENTED, String.format("rule=%s", field.getRule()));
 //						break;
 					case LT:
-						throw new BuskerException(Code.RULE_UNIMPLEMENTED, String.format("rule=%s", field.getRule()));
+						throw new BusinessException(Code.RULE_UNIMPLEMENTED, String.format("rule=%s", field.getRule()));
 //						break;
 					case GT:
-						throw new BuskerException(Code.RULE_UNIMPLEMENTED, String.format("rule=%s", field.getRule()));
+						throw new BusinessException(Code.RULE_UNIMPLEMENTED, String.format("rule=%s", field.getRule()));
 //						break;
 					case LK:
 						multiPredicate.add(criteriaBuilder.like(path, "%" + field.getValue() + "%"));
 						break;
 					case LL:
-						throw new BuskerException(Code.RULE_UNIMPLEMENTED, String.format("rule=%s", field.getRule()));
+						throw new BusinessException(Code.RULE_UNIMPLEMENTED, String.format("rule=%s", field.getRule()));
 //						break;
 					case RL:
-						throw new BuskerException(Code.RULE_UNIMPLEMENTED, String.format("rule=%s", field.getRule()));
+						throw new BusinessException(Code.RULE_UNIMPLEMENTED, String.format("rule=%s", field.getRule()));
 //						break;
 					default:
-						throw new BuskerException(Code.RULE_UNIMPLEMENTED, String.format("rule=%s", field.getRule()));
+						throw new BusinessException(Code.RULE_UNIMPLEMENTED, String.format("rule=%s", field.getRule()));
 				}
 				predicates.add(criteriaBuilder.or(multiPredicate.toArray(new Predicate[multiPredicate.size()])));
 			});
@@ -104,7 +104,7 @@ public abstract class PageUtil {
 			return null;
 		}
 		List<Order> orders = sorts.stream()
-				.map(sort -> new Order(Sort.Direction.fromStringOrNull(sort.getOrder().name()), sort.getProperty()))
+				.map(sort -> new Order(Sort.Direction.fromString(sort.getOrder().name()), sort.getProperty()))
 				.collect(Collectors.toList());
 		return new Sort(orders);
 	}

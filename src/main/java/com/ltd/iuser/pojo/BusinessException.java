@@ -111,7 +111,6 @@ public class BusinessException extends RuntimeException{
         this.detail = detail;
     }
 
-
     public BusinessException(Result result) {
         super(result.getCode().name());
         this.code = result.getCode().name();

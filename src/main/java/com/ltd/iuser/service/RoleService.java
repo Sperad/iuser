@@ -1,11 +1,21 @@
 package com.ltd.iuser.service;
 
+import com.ltd.iuser.domain.dto.role.RoleAdd;
+import com.ltd.iuser.domain.dto.role.RoleDTO;
+import com.ltd.iuser.domain.dto.role.RoleUpdate;
+import com.ltd.iuser.domain.mapper.RoleMapper;
+import com.ltd.iuser.entity.Role;
+import com.ltd.iuser.enums.Code;
+import com.ltd.iuser.pojo.BusinessException;
+import com.ltd.iuser.repository.RoleRepository;
+import com.ltd.iuser.utils.ObjectUtil;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @Transactional(rollbackFor = Exception.class)
 @Service
@@ -13,23 +23,20 @@ public class RoleService {
 
     @Autowired
     private RoleRepository roleRepository;
+
+
     @Autowired
     private RoleMapper roleMapper;
 
     @Transactional(rollbackFor = Exception.class, readOnly = true)
     public Role findOne(long id) {
         if (1L > id) {
-            throw new BuskerException(Code.ILLEGAL_ID, String.format("id = %d", id));
+            throw new BusinessException(Code.ILLEGAL_ID, String.format("id = %d", id));
         }
-        Role role = roleRepository.findOne(id);
-        return role;
-    }
+        Role role = roleRepository.findById(id).get();
 
-    @Transactional(rollbackFor = Exception.class, readOnly = true)
-    public Role getOne(long id) {
-        Role role = findOne(id);
         if (null == role) {
-            throw new BuskerException(Code.INVALID_ID, String.format("id = %d", id));
+            throw new BusinessException(Code.INVALID_ID, String.format("id = %d", id));
         }
         return role;
     }
@@ -56,9 +63,9 @@ public class RoleService {
 
     public RoleDTO update(long id, RoleUpdate roleUpdate) {
         if (1L > id) {
-            throw new BuskerException(Code.ILLEGAL_ID, String.format("id = %d", id));
+            throw new BusinessException(Code.ILLEGAL_ID, String.format("id = %d", id));
         }
-        Role role = getOne(id);
+        Role role = findOne(id);
         BeanUtils.copyProperties(roleUpdate, role, ObjectUtil.getNullPropertyNames(roleUpdate));
         roleRepository.save(role);
         RoleDTO roleDTO = roleMapper.dto(role);
@@ -67,9 +74,9 @@ public class RoleService {
 
     public void remove(long id) {
         if (1L > id) {
-            throw new BuskerException(Code.ILLEGAL_ID, String.format("id = %d", id));
+            throw new BusinessException(Code.ILLEGAL_ID, String.format("id = %d", id));
         }
-        Role role = getOne(id);
+        Role role = findOne(id);
         roleRepository.delete(role);
     }
 }

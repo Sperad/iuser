@@ -1,6 +1,5 @@
 package com.ltd.iuser.pojo.page;
 
-import org.springframework.core.convert.converter.Converter;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
@@ -9,6 +8,7 @@ import org.springframework.data.domain.Sort;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.function.Function;
 
 public class RestPage<T> implements Page<T> {
 
@@ -80,7 +80,7 @@ public class RestPage<T> implements Page<T> {
     }
 
     @Override
-    public <S> Page<S> map(Converter<? super T, ? extends S> converter) {
+    public <S> Page<S> map(Function<? super T, ? extends S> converter) {
         return pageDelegate.map(converter);
     }
 

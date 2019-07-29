@@ -1,8 +1,8 @@
 package com.ltd.iuser.entity;
 
-import com.itian.busker.common.Constants;
-import com.itian.busker.common.enums.Part;
-import com.itian.busker.common.enums.Status;
+import com.ltd.iuser.enums.Constants;
+import com.ltd.iuser.enums.Part;
+import com.ltd.iuser.enums.Status;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.GenericGenerator;

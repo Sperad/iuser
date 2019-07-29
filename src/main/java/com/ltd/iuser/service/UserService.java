@@ -34,7 +34,7 @@ public class UserService {
             throw new BusinessException(Code.ILLEGAL_ID, String.format("id = %d", id));
         }
 
-        User user = userRepository.findOne(id);
+        User user = userRepository.findById(id).get();
         if (null == user) {
             throw new BusinessException(Code.INVALID_ID, String.format("id = %d", id));
         }

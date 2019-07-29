@@ -1,7 +1,7 @@
 package com.ltd.iuser.entity;
 
-import com.itian.busker.common.Constants;
-import com.itian.busker.common.enums.Audit;
+import com.ltd.iuser.enums.Audit;
+import com.ltd.iuser.enums.Constants;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.GenericGenerator;
@@ -13,12 +13,6 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
 
-/**
- * @author jett.gao
- * @description TODO
- * @date 2019-06-14 10:28
- * @copyright: 2019 www.itian365.com Inc. All rights reserved.
- */
 @Getter
 @Setter
 @Entity
@@ -37,10 +31,6 @@ public class IdentityApply implements Serializable {
 
     @Column(nullable = false, length = 20)
     private String mobile;
-
-    @ManyToOne
-    @JoinColumn
-    private Profession profession;
 
     @Column(length = 20)
     private String newProfession;

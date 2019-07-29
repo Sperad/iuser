@@ -1,6 +1,7 @@
 package com.ltd.iuser.utils;
 
-import com.itian.busker.common.enums.Permission;
+
+import com.ltd.iuser.enums.Permission;
 import org.apache.commons.lang3.ArrayUtils;
 
 import java.util.Arrays;

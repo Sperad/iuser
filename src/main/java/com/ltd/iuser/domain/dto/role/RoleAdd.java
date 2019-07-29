@@ -1,23 +1,17 @@
 package com.ltd.iuser.domain.dto.role;
 
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import com.itian.busker.authorization.common.entity.Role;
-import com.itian.busker.common.enums.Part;
-import com.itian.busker.common.pojo.json.LongJsonDeserializer;
+import com.ltd.iuser.entity.Role;
+import com.ltd.iuser.enums.Part;
+import com.ltd.iuser.pojo.json.LongJsonDeserializer;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.validator.constraints.Length;
-import org.hibernate.validator.constraints.NotBlank;
 
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
-/**
- * @author jett.gao
- * @description TODO
- * @date 2019-06-04 14:08
- * @copyright: 2019 www.itian365.com Inc. All rights reserved.
- */
 @Getter
 @Setter
 public class RoleAdd implements Serializable {

@@ -1,6 +1,6 @@
 package com.ltd.iuser.repository;
 
-import com.itian.busker.authorization.common.entity.Role;
+import com.ltd.iuser.entity.Role;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

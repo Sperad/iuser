@@ -1,7 +1,7 @@
 package com.ltd.iuser.domain.dto.role;
 
-import com.itian.busker.common.enums.Part;
-import com.itian.busker.common.enums.Status;
+import com.ltd.iuser.enums.Part;
+import com.ltd.iuser.enums.Status;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -9,12 +9,6 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
-/**
- * @author jett.gao
- * @description TODO
- * @date 2019-06-04 13:58
- * @copyright: 2019 www.itian365.com Inc. All rights reserved.
- */
 @Getter
 @Setter
 public class RoleDTO implements Serializable {

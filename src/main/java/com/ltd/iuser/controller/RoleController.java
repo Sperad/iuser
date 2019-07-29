@@ -1,22 +1,25 @@
 package com.ltd.iuser.controller;
 
+import com.ltd.iuser.domain.dto.role.RoleAdd;
+import com.ltd.iuser.domain.dto.role.RoleDTO;
+import com.ltd.iuser.domain.dto.role.RoleUpdate;
+import com.ltd.iuser.domain.mapper.RoleMapper;
+import com.ltd.iuser.domain.vo.role.RoleVO;
+import com.ltd.iuser.pojo.Result;
+import com.ltd.iuser.service.RoleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.List;
 
-/**
- * @author jett.gao
- * @description TODO
- * @date 2019-06-05 16:39
- * @copyright: 2019 www.itian365.com Inc. All rights reserved.
- */
 @RequestMapping("/role")
 @RestController
 public class RoleController {
 
     @Autowired
     private RoleService roleService;
+    
     @Autowired
     private RoleMapper roleMapper;
 

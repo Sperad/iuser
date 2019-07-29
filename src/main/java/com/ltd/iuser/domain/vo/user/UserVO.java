@@ -1,20 +1,14 @@
 package com.ltd.iuser.domain.vo.user;
 
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import com.itian.busker.common.enums.Status;
-import com.itian.busker.common.pojo.json.LongJsonSerializer;
+import com.ltd.iuser.enums.Status;
+import com.ltd.iuser.pojo.json.LongJsonSerializer;
 import lombok.Getter;
 import lombok.Setter;
 
 import java.io.Serializable;
 import java.util.Date;
 
-/**
- * @author jett.gao
- * @description TODO
- * @date 2019-06-04 23:19
- * @copyright: 2019 www.itian365.com Inc. All rights reserved.
- */
 @Getter
 @Setter
 public class UserVO implements Serializable {
