@@ -21,8 +21,6 @@ public class User implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
-    @GeneratedValue(generator = Constants.GeneratorStrategy.SNOWFLAKE_NAME)
-    @GenericGenerator(name = Constants.GeneratorStrategy.SNOWFLAKE_NAME, strategy = Constants.GeneratorStrategy.SNOWFLAKE_REFERENCE)
     private Long id;
 
     @Column(nullable = false, length = 50)

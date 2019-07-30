@@ -4,7 +4,7 @@ public interface Constants {
 
     interface GeneratorStrategy{
         String SNOWFLAKE_NAME = "snowflake";
-        String SNOWFLAKE_REFERENCE = "com.itian.busker.common.pojo.generator.SnowflakeIdGenerator";
+        String SNOWFLAKE_REFERENCE = "com.ltd.iuser.pojo.generator.SnowflakeIdGenerator";
     }
 
     interface Redis {

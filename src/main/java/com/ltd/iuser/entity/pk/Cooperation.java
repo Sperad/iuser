@@ -1,6 +1,6 @@
-package com.ltd.iuser.entity;
+package com.ltd.iuser.entity.pk;
 
-import com.ltd.iuser.enums.Audit;
+import com.ltd.iuser.entity.User;
 import com.ltd.iuser.enums.Constants;
 import lombok.Getter;
 import lombok.Setter;
@@ -17,13 +17,10 @@ import java.util.Date;
 @Setter
 @Entity
 @EntityListeners(AuditingEntityListener.class)
-public class IdentityApply implements Serializable {
-
+public class Cooperation implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
-    @GeneratedValue(generator = Constants.GeneratorStrategy.SNOWFLAKE_NAME)
-    @GenericGenerator(name = Constants.GeneratorStrategy.SNOWFLAKE_NAME, strategy = Constants.GeneratorStrategy.SNOWFLAKE_REFERENCE)
     private Long id;
 
     @Column(nullable = false, length = 50)
@@ -32,25 +29,8 @@ public class IdentityApply implements Serializable {
     @Column(nullable = false, length = 20)
     private String mobile;
 
-    @Column(length = 20)
-    private String newProfession;
-
-    @Column(nullable = false, length = 50)
-    private String cover;
-
-    @Column(length = 50)
-    private String opus;
-
-    @Column(nullable = false, columnDefinition = "tinyint default 0")
-    @Enumerated(EnumType.ORDINAL)
-    private Audit audit = Audit.REVIEWING;
-
-    @Column(length = 100)
-    private String rejectReason;
-
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(updatable = false, nullable = false, unique = true)
-    private User user;
+    @Column(nullable = false, length = 256)
+    private String needs;
 
     @Temporal(TemporalType.TIMESTAMP)
     @CreatedDate
@@ -61,4 +41,8 @@ public class IdentityApply implements Serializable {
     @LastModifiedDate
     @Column(nullable = false)
     private Date updateTime;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(updatable = false)
+    private User user;
 }
