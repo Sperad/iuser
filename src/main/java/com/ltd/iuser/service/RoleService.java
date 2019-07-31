@@ -8,7 +8,6 @@ import com.ltd.iuser.entity.Role;
 import com.ltd.iuser.enums.Code;
 import com.ltd.iuser.pojo.BusinessException;
 import com.ltd.iuser.repository.RoleRepository;
-import com.ltd.iuser.utils.ObjectUtil;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -66,8 +65,7 @@ public class RoleService {
             throw new BusinessException(Code.ILLEGAL_ID, String.format("id = %d", id));
         }
         Role role = findOne(id);
-        BeanUtils.copyProperties(roleUpdate, role, ObjectUtil.getNullPropertyNames(roleUpdate));
-        roleRepository.save(role);
+        //roleRepository.save(role);
         RoleDTO roleDTO = roleMapper.dto(role);
         return roleDTO;
     }

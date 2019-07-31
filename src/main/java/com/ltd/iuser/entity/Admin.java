@@ -1,10 +1,8 @@
 package com.ltd.iuser.entity;
 
-import com.ltd.iuser.enums.Constants;
 import com.ltd.iuser.enums.Status;
 import lombok.Getter;
 import lombok.Setter;
-import org.hibernate.annotations.GenericGenerator;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
@@ -15,8 +13,7 @@ import java.util.Date;
 @Getter
 @Setter
 @Entity
-@EntityListeners(AuditingEntityListener.class)
-public class Administrator {
+public class Admin {
     private static final long serialVersionUID = 1L;
 
     @Id

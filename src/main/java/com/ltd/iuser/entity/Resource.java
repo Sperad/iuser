@@ -19,11 +19,6 @@ import java.util.Set;
 @Setter
 @Getter
 @Entity
-@Embeddable
-@Inheritance(strategy = InheritanceType.JOINED)
-@DiscriminatorColumn(name = "type", discriminatorType = DiscriminatorType.STRING, length = 10)
-@DiscriminatorValue("RESOURCE")
-@EntityListeners(AuditingEntityListener.class)
 public class Resource implements Serializable {
     private static final long serialVersionUID = 1L;
 

@@ -31,13 +31,6 @@ public class ResourceController {
         return  Result.data(resourceVO);
     }
 
-    @PostMapping("/search")
-    public Result<Page<ResourceVO>> search(@Valid @RequestBody PageQuery pageQuery) {
-        Page<ResourceDTO> resourceDTOPage = resourceService.search(pageQuery);
-        Page<ResourceVO> resourceVOPage = resourceDTOPage.map(resourceMapper::vo);
-        return Result.data(resourceVOPage);
-    }
-
     @PutMapping("/{id}")
     public Result<ResourceVO> update(@PathVariable("id") Long id, @Valid @RequestBody ResourceUpdate resourceUpdate) {
         ResourceDTO resourceDTO = resourceService.update(id, resourceUpdate);

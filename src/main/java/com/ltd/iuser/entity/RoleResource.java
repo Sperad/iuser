@@ -1,6 +1,5 @@
 package com.ltd.iuser.entity;
 
-import com.ltd.iuser.entity.pk.PKRoleResource;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -13,8 +12,8 @@ import java.io.Serializable;
 public class RoleResource implements Serializable {
     private static final long serialVersionUID = 1L;
 
-    @EmbeddedId
-    private PKRoleResource id;
+    @Id
+    private Long id;
 
     @MapsId("roleId")
     @ManyToOne

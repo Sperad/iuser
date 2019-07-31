@@ -8,10 +8,7 @@ import com.ltd.iuser.entity.Resource;
 import com.ltd.iuser.enums.Code;
 import com.ltd.iuser.pojo.BusinessException;
 import com.ltd.iuser.pojo.page.PageQuery;
-import com.ltd.iuser.pojo.page.PageUtil;
 import com.ltd.iuser.repository.ResourceRepository;
-import com.ltd.iuser.utils.ObjectUtil;
-import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
@@ -48,16 +45,10 @@ public class ResourceService {
         return resourceDTO;
     }
 
-    public Page<ResourceDTO> search(PageQuery pageQuery) {
-        Page<Resource> administratorPage = resourceRepository.findAll(PageUtil.getSpecification(pageQuery), PageUtil.getPageable(pageQuery));
-        Page<ResourceDTO> administratorDTOPage = administratorPage.map(resourceMapper::dto);
-        return administratorDTOPage;
-    }
-
     public ResourceDTO update(Long id, ResourceUpdate resourceUpdate) {
         Resource resource = findOne(id);
-        BeanUtils.copyProperties(resourceUpdate, resource, ObjectUtil.getNullPropertyNames(resourceUpdate));
-        resourceRepository.save(resource);
+        System.out.println(resource);
+        //resourceRepository.save(resource);
         ResourceDTO resourceDTO = resourceMapper.dto(resource);
         return resourceDTO;
     }

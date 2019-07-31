@@ -1,14 +1,11 @@
 package com.ltd.iuser.entity;
 
-import com.ltd.iuser.enums.Constants;
 import com.ltd.iuser.enums.Part;
 import com.ltd.iuser.enums.Status;
 import lombok.Getter;
 import lombok.Setter;
-import org.hibernate.annotations.GenericGenerator;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
-import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -17,7 +14,6 @@ import java.util.Date;
 @Getter
 @Setter
 @Entity
-@EntityListeners(AuditingEntityListener.class)
 public class Role implements Serializable {
     private static final long serialVersionUID = 1L;
 
