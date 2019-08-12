@@ -7,10 +7,8 @@ import com.ltd.iuser.domain.mapper.ResourceMapper;
 import com.ltd.iuser.entity.Resource;
 import com.ltd.iuser.enums.Code;
 import com.ltd.iuser.pojo.BusinessException;
-import com.ltd.iuser.pojo.page.PageQuery;
 import com.ltd.iuser.repository.ResourceRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -28,12 +26,12 @@ public class ResourceService {
     @Transactional(rollbackFor = Exception.class, readOnly = true)
     public Resource findOne(long id) {
         if (1L > id) {
-            throw new BusinessException(Code.ILLEGAL_ID, String.format("id = %d", id));
+            throw new BusinessException(Code.SUCCESS, String.format("id = %d", id));
         }
 
         Resource resource = resourceRepository.findById(id).get();
         if (null == resource) {
-            throw new BusinessException(Code.INVALID_ID, String.format("id = %d", id));
+            throw new BusinessException(Code.SUCCESS, String.format("id = %d", id));
         }
         return resource;
     }

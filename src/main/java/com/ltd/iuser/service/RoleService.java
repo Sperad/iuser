@@ -30,12 +30,12 @@ public class RoleService {
     @Transactional(rollbackFor = Exception.class, readOnly = true)
     public Role findOne(long id) {
         if (1L > id) {
-            throw new BusinessException(Code.ILLEGAL_ID, String.format("id = %d", id));
+            throw new BusinessException(Code.SUCCESS, String.format("id = %d", id));
         }
         Role role = roleRepository.findById(id).get();
 
         if (null == role) {
-            throw new BusinessException(Code.INVALID_ID, String.format("id = %d", id));
+            throw new BusinessException(Code.SUCCESS, String.format("id = %d", id));
         }
         return role;
     }
@@ -62,7 +62,7 @@ public class RoleService {
 
     public RoleDTO update(long id, RoleUpdate roleUpdate) {
         if (1L > id) {
-            throw new BusinessException(Code.ILLEGAL_ID, String.format("id = %d", id));
+            throw new BusinessException(Code.SUCCESS, String.format("id = %d", id));
         }
         Role role = findOne(id);
         //roleRepository.save(role);
@@ -72,7 +72,7 @@ public class RoleService {
 
     public void remove(long id) {
         if (1L > id) {
-            throw new BusinessException(Code.ILLEGAL_ID, String.format("id = %d", id));
+            throw new BusinessException(Code.SUCCESS, String.format("id = %d", id));
         }
         Role role = findOne(id);
         roleRepository.delete(role);
